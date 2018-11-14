@@ -7,18 +7,7 @@
 环境准备
 --------
 
-这里我们以CentOS7.5为例，安装openstack rocky版本，
-其它版本安装方法类似。packstack目前对NetworkManager
-还不支持，我们修改下配置：
-
-.. code-block:: shell
-
-    systemctl disable firewalld
-    systemctl stop firewalld
-    systemctl disable NetworkManager
-    systemctl stop NetworkManager
-    systemctl enable network
-    systemctl start network
+这里我们以CentOS7.5为例，安装openstack rocky版本，其它版本安装方法类似。
 
 安装 packstack
 --------------
