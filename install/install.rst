@@ -29,10 +29,6 @@
     # 生成answer-file
     packstack --gen-answer-file=filename
 
-安装 openstack
----------------
-
-接着使用下面的命令安装openstack。
 
 修改 answer-file
 ----------------
