@@ -8,6 +8,16 @@
 --------
 
 这里我们以CentOS7.5为例，安装openstack rocky版本，其它版本安装方法类似。
+packstack目前对NetworkManager还不支持，我们修改下配置：
+
+.. code-block:: shell
+
+    systemctl disable firewalld
+    systemctl stop firewalld
+    systemctl disable NetworkManager
+    systemctl stop NetworkManager
+    systemctl enable network
+    systemctl start network
 
 安装 packstack
 --------------
@@ -75,7 +85,9 @@ packstack 默认是不安装 ironic 的，需要做如下修改，将CONFIG_IRON
     [root@host-10-0-40-155 ~]# neutron-db-manage upgrade head
     
     
-修复报错3：提示
+修复报错3：
+1、提示Error: Failed to apply catalog: Could not authenticate
+2、/var/log/keystone/keystone.log: Authorization failed. The request you have made requires authentication.
 --------------
 
 .. code-block:: shell
