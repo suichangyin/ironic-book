@@ -61,8 +61,23 @@ packstack 默认是不安装 ironic 的，需要做如下修改，将CONFIG_IRON
     Query OK, 1 row affected (0.00 sec)
 
 
-修复报错2：提示Error: Failed to apply catalog: Could not authenticate
+修复报错2：提示neutron-db-sync Error: Duplicate key name 'uniq_ports0standard_attr_id'
 --------------
 
 .. code-block:: shell
 
+    MariaDB [mysql]> drop database neutron;
+    Query OK, 170 rows affected (2 min 42.25 sec)
+
+    MariaDB [mysql]> create database neutron;
+    Query OK, 1 row affected (0.00 sec)
+    
+    [root@host-10-0-40-155 ~]# neutron-db-manage upgrade head
+    
+    
+修复报错3：提示
+--------------
+
+.. code-block:: shell
+
+    
